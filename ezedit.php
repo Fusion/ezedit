@@ -10,6 +10,8 @@ var $configuration = array(
 	'plugin' => null, // plugin == null => use the built-in code, which handles simple html sites
 	'index' => 'index.html', // plugin == null => use this as default index page
 	'path' => './',
+	'username' => 'admin', // Change this!
+	'password' => 'password', // Change _at least_ this!
 );
 
 	/*
@@ -195,7 +197,10 @@ var $configuration = array(
 	 * Default plugin call-back to authenticate a user based on username + password
 	 */
 	function default_authenticate($username, $password) {
-		if($username != 'admin' || $password != 'switch') {
+		if($this->configuration['password'] == 'password') {
+			die("Sorry, you need to change your username and password in ezedit.php");
+		}
+		if($username != $this->configuration['username'] || $password != $this->configuration['password']) {
 			die("Sorry, wrong credentials");
 		}
 	}

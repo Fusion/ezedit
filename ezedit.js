@@ -20,6 +20,14 @@ var ezconfig = {
 	//etc.
 };
 
+if(_ezbl) {
+	// Bookmarklet!
+	ezconfig.mode = 'standalone';
+	ezconfig.editor = 'http://labs.voilaweb.com/ezedit/bookmarklet/ezedit.php?editor';
+	ezconfig.toolbar = 'http://labs.voilaweb.com/ezedit/bookmarklet/ezedit.php?toolbar';
+	ezconfig.select = 'all';
+}
+
 document.getComputedValue = function(element, style) {
 	var computedValue;
 	if(typeof element.currentStyle != 'undefined') {
